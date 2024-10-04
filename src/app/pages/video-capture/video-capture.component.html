@@ -1,0 +1,41 @@
+<!-- page layout -->
+<div class="flex flex-col items-center content-center">
+
+  <!-- page content -->
+  <div class="grid-cols-1 items-center page-content">
+
+    <!-- life bar -->
+    <div class="grid gap-1 grid-cols-[20%_20%_60%] life-bar items-center">
+      <!-- remaining time -->
+      <div class="remaining-time">
+        {{ remainingTime }}
+      </div>
+
+      <!-- bpm -->
+      <div class="bpm">
+        <span class="bpm-value">{{ bpm }}</span>
+        <span class="bpm-label"> bpm</span>
+      </div>
+
+      <!-- start and stop -->
+      <div class="flex justify-end">
+        <button [disabled]="isRecording">
+          <mat-icon class="start-stop-icons" id="record-icon">fiber_manual_record</mat-icon>
+        </button>
+        <button [disabled]="!isRecording">
+          <mat-icon class="start-stop-icons">pause</mat-icon>
+        </button>
+        <button [disabled]="!isRecording">
+          <mat-icon class="start-stop-icons">stop</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- video capture -->
+    <div class="video-capture items-center justify-center">
+      <video #video></video>
+      <canvas #landmarkCanvas></canvas>
+    </div>
+
+  </div>
+</div>
